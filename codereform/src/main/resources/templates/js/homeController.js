@@ -111,7 +111,7 @@ function setOnClickListeners() {
                 $('#re1_7').text('Effort: ' + response.effort );
                 $('#re1_8').text('Time Required to Program: ' + response.timeRequiredToProgram);
                 $('#re1_9').text('Number of Delivered Bugs: ' + response.numberDeliveredBugs );
-               
+                $('#saveFile1').css("display", "block");
             },
             error: function (error) {
                 console.log(error.responseJSON);
@@ -147,7 +147,7 @@ function setOnClickListeners() {
                 $('#re2_7').text('Effort: ' + response.effort );
                 $('#re2_8').text('Time Required to Program: ' + response.timeRequiredToProgram);
                 $('#re2_9').text('Number of Delivered Bugs: ' + response.numberDeliveredBugs );
-                
+                $('#saveFile2').css("display", "block");
             },
             error: function (error) {
                 console.log(error.responseJSON);
@@ -176,5 +176,28 @@ function setOnClickListeners() {
     	        }
     	    }
     });
+    
+    $("#btn-save1").click( function() {
+    	var text ="";
+    	for(i=1;i<10;i++){
+    		var text = text + $("#re1_"+i).text()+ '\n';
+    		
+    	}
+    	  
+    	  var filename = $("#fileName1").val();
+    	  var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+    	  saveAs(blob, filename+".rtf");
+    	});
+    $("#btn-save2").click( function() {
+    	var text ="";
+    	for(i=1;i<10;i++){
+    		var text = text + $("#re2_"+i).text()+ '\n';
+    		
+    	}
+    	  
+    	  var filename = $("#fileName2").val();
+    	  var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+    	  saveAs(blob, filename+".rtf");
+    	});
     
 }
