@@ -24,7 +24,9 @@ public class CRDocumentServiceImpl implements CRDocumentService {
         int totalOperands = util.countTotalOperands(document);
         int distinctOperators = util.countDistinctOperators(document);
         int distinctOperands = util.countDistinctOperands(document);
+        int cyclomatic =util.check(document);
 
+        resultScore.setCyclomatic(cyclomatic);
         resultScore.setNumberLines(lines);
         resultScore.setVocabulary(distinctOperands + distinctOperators);
         resultScore.setLength(totalOperands + totalOperators);

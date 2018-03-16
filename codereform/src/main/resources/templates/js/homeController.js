@@ -155,6 +155,7 @@ function setOnClickListeners() {
                 $('#re1_7').text('Effort: ' + response.effort );
                 $('#re1_8').text('Time Required to Program: ' + response.timeRequiredToProgram);
                 $('#re1_9').text('Number of Delivered Bugs: ' + response.numberDeliveredBugs );
+                $('#re1_10').text('Cyclomatic Complexity: ' + response.cyclomatic );
                 $('#saveFile1').css("display", "block");
             },
             error: function (error) {
@@ -191,6 +192,7 @@ function setOnClickListeners() {
                 $('#re2_7').text('Effort: ' + response.effort );
                 $('#re2_8').text('Time Required to Program: ' + response.timeRequiredToProgram);
                 $('#re2_9').text('Number of Delivered Bugs: ' + response.numberDeliveredBugs );
+                $('#re2_10').text('Cyclomatic Complexity: ' + response.cyclomatic );
                 $('#saveFile2').css("display", "block");
             },
             error: function (error) {
@@ -200,7 +202,7 @@ function setOnClickListeners() {
     });
     $('#bCompare').click(function () {
     	
-    	 for (var i=0; i<9; i++) {
+    	 for (var i=0; i<10; i++) {
     		
     		 
     	        var value1 = Number($('#re1_'+(i+1)).text().split(':')[1].trim());

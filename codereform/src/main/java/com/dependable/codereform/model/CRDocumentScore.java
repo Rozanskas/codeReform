@@ -15,12 +15,13 @@ public class CRDocumentScore {
     private int calculatedLength;
     private double timeRequiredToProgram;
     private double numberDeliveredBugs;
+    private int cyclomatic;
 
     public CRDocumentScore() {
         //
     }
 
-    public CRDocumentScore(int numberLines, double volume, double difficulty, double effort, int vocabulary, int length, int calculatedLength, double timeRequiredToProgram, double numberDeliveredBugs) {
+    public CRDocumentScore(int numberLines, double volume, double difficulty, double effort, int vocabulary, int length, int calculatedLength, double timeRequiredToProgram, double numberDeliveredBugs,int cyclomatic) {
         this.numberLines = numberLines;
         this.volume = volume;
         this.difficulty = difficulty;
@@ -30,9 +31,19 @@ public class CRDocumentScore {
         this.calculatedLength = calculatedLength;
         this.timeRequiredToProgram = timeRequiredToProgram;
         this.numberDeliveredBugs = numberDeliveredBugs;
+        this.cyclomatic = cyclomatic;
     }
+    
 
-    public void setTimeRequiredToProgram(double timeRequiredToProgram) {
+    public int getCyclomatic() {
+		return cyclomatic;
+	}
+
+	public void setCyclomatic(int cyclomatic) {
+		this.cyclomatic = cyclomatic;
+	}
+
+	public void setTimeRequiredToProgram(double timeRequiredToProgram) {
         this.timeRequiredToProgram = timeRequiredToProgram;
     }
 
