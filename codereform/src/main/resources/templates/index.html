@@ -8,35 +8,27 @@
 	type="text/css">
 </head>
 <style>
-#videoBackground {
-	position: fixed;
-	min-width: 100%;
-	min-height: 100%;
-	right: 0;
-	bottom: 0;
-}
+ body ,.color,.container,.row {background-color: grey;}
 </style>
 <body>
-	<video autoplay muted loop id="videoBackground">
-		<source src="Hello-World.mp4" type="video/mp4">
-	</video>
-	<div class="container" style="padding: 30px; background-color: white;">
-		<h2 align="center"
+	
+	<div class="container color" style="padding: 30px;">
+		<h2 class="color" align="center"
 			style="color: white; z-index: -1; opacity: 0.9; text-shadow: 1px 1px black;">Welcome
 			to CodeReform</h2>
 
 		<div class="row" align="center">
 			<div class="col-md-5" style="float: none; margin: 0 auto;">
 				<div class="row">
-					<p style="color: white; opacity: 0.9; text-shadow: 1px 1px black;">Copy
+					<p style="color: white; opacity: 0.9;">Copy
 						and Paste your code here:</p> <br>
 					
 				</div>
-				<div class="row"><p style="background:green;color:white;" id="showing1"></p></div>
+				<div class="row"><p style="background:grey;color:white;" id="showing1"></p></div>
 				<div class="row" style="margin-top: 15px;">
 					
 						<textarea
-							style="margin-bottom: 10px;border: #000000a solid 1px; padding: 10px; opacity: 0.6; border-radius: 25px; width: 200%;"
+							style="margin-bottom: 10px;background:black;color:#00F200;border: #000000a solid 1px; padding: 10px;  width: 200%;"
 							rows="10" id="crDocument1"></textarea>
 						</div>
 						<div class="row" id="below_text1" >
@@ -54,7 +46,7 @@
 				</div>
 				<div class="row" style="margin: 10px;">
 				<h4 style="color:white;">Score:</h4>
-					<ul style="list-style: none;color:white;background:grey; border: #000000a solid 1px; padding: 10px; opacity: 0.7; border-radius: 25px;">
+					<ul style="list-style: none;color:white;background:grey; border: #000000a solid 1px; padding: 10px;">
 						<li id="re1_1"></li>
 						<li id="re1_2"></li>
 						<li id="re1_3"></li>
@@ -74,18 +66,18 @@
 				
 				</div>
 			</div>
-			<div class="col-md-2" style="position: relative; right: 43px;">
-				<button class="btn btn-default" id="bCompare">Compare Code</button>
+			<div class="col-md-2">
+				<button class="btn btn-success" id="bCompare">Compare Code</button>
 			</div>
 			<div class="col-md-5">
 				<div class="row">
-					<p style="color: white; opacity: 0.9; text-shadow: 1px 1px black;">Copy
+					<p style="color: white; opacity: 0.9;">Copy
 						and Paste your code here:</p>
 				</div>
-				<div class="row"><p style="background:green;color:white;" id="showing2"></p></div>
+				<div class="row"><p style="background:grey;color:white;" id="showing2"></p></div>
 				<div class="row" style="margin-top: 15px;">
 					<textarea
-						style="margin-bottom: 5px;border: #000000a solid 1px; padding: 10px; opacity: 0.6; border-radius: 25px; width: 200%;"
+						style="background:black;color:#00F200;margin-bottom: 5px;border: #000000a solid 1px; padding: 10px; width: 200%;"
 						rows="10" id="crDocument2"></textarea>
 				</div>
 				<div class="row" id="below_text2" >
@@ -100,7 +92,7 @@
 					</div>
 					<div class="row" style="margin-bottom:10px;">
 				<h4 style="color:white;">Score:</h4>
-					<ul style="list-style: none;color:white;background:grey; border: #000000a solid 1px; padding: 10px; opacity: 0.7; border-radius: 25px;">
+					<ul style="list-style: none;color:white;background:grey; border: #000000a solid 1px; padding: 10px;">
 						<li id="re2_1"></li>
 						<li id="re2_2"></li>
 						<li id="re2_3"></li>

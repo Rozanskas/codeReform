@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	 $("#inputFile1").change(function(e){
+	 
+	$("#inputFile1").change(function(e){
 	        readURL(this,e);
 	    });
 	 $("#inputFile2").change(function(e){
@@ -8,33 +9,58 @@ $(document).ready(function () {
     setOnClickListeners();
 });
 
+var c1=0;
+var c2=0;
+var fileNameArray=[];
+var contentArray=[];
+var ci1=0;
+var ci2=0;
+var fileNameArray2=[];
+var contentArray2=[];
+
 function getLastIndex(str) {
     return str.toString().indexOf('.') + 3;
 }
    
 function readURL(input,e) {
 	var fileName=e.target.files[0].name;
-	var fileNameArray=[];
 	$("#showing1").text("Showing content of file "+ fileName);
+	
+	for(j=0;j<input.files.length;j++){
+		fileNameArray[c2]=e.target.files[j].name;
+		c2++;
+	}
 	for(i=0;i<input.files.length;i++){
-		var fileName=e.target.files[i].name;
-		var reader = new FileReader();
-		var contentArray=[];
-    	reader.onload = function (e) {
-    		contentArray.push(e.target.result)
-    	        }
-    	        reader.readAsText(input.files[i]);
 		
-		var r= $('<input id="upButon'+i+'" style="margin-left:20px;margin-bottom:5px;" type="button" value="'+ fileName+'"/>');
+		var reader = new FileReader();
+		reader.readAsText(input.files[i]);
+		
+    	reader.onload = function (e) {
+    		contentArray[c1]=e.target.result;
+    
+    	                
+		var r= $('<input id="upButon'+c1+'" style="margin-left:20px;margin-bottom:5px;" type="button" value="'+ fileNameArray[c1]+'"/>');
+		
         $("#below_text1").append(r);
-        fileNameArray[i]=fileName;
-        $("#upButon"+i).click(function(){
+       
+        
+        
+        $("#upButon"+c1).click(function(){
+        	
         	var id = $(this).attr('id').replace(/upButon/, '');
         	document.getElementById("crDocument1").value = contentArray[id];
         	$("#showing1").text("Showing content of file "+fileNameArray[id]);
+        	
+        	
+        	
         });
-      
+        
+        c1++;
 	}
+    	
+	}
+	
+	
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         
@@ -44,31 +70,48 @@ function readURL(input,e) {
         }
         reader.readAsText(input.files[0]);
     }
+    
 }
 function readURL2(input,e) {
 	
 	var fileName=e.target.files[0].name;
-	var fileNameArray=[];
 	$("#showing2").text("Showing content of file "+ fileName);
-	for(i=0;i<input.files.length;i++){
-		var fileName=e.target.files[i].name;
-		var reader = new FileReader();
-		var contentArray=[];
-    	reader.onload = function (e) {
-    		contentArray.push(e.target.result)
-    	        }
-    	        reader.readAsText(input.files[i]);
-		
-		var r= $('<input id="upButonn'+i+'" style="margin-left:20px;" type="button" value="'+ fileName+'"/>');
-        $("#below_text2").append(r);
-        fileNameArray[i]=fileName;
-        $("#upButonn"+i).click(function(){
-        	var id = $(this).attr('id').replace(/upButonn/, '');
-        	document.getElementById("crDocument2").value = contentArray[id];
-        	$("#showing2").text("Showing content of file "+fileNameArray[id]);
-        });
-      
+	
+	for(j=0;j<input.files.length;j++){
+		fileNameArray2[ci2]=e.target.files[j].name;
+		ci2++;
 	}
+	for(i=0;i<input.files.length;i++){
+		
+		var reader = new FileReader();
+		reader.readAsText(input.files[i]);
+		
+    	reader.onload = function (e) {
+    		contentArray2[ci1]=e.target.result;
+    
+    	                
+		var r= $('<input id="upButonn'+ci1+'" style="margin-left:20px;margin-bottom:5px;" type="button" value="'+ fileNameArray2[ci1]+'"/>');
+		
+        $("#below_text2").append(r);
+       
+        
+        
+        $("#upButonn"+ci1).click(function(){
+        	
+        	var id = $(this).attr('id').replace(/upButonn/, '');
+        	document.getElementById("crDocument2").value = contentArray2[id];
+        	$("#showing2").text("Showing content of file "+fileNameArray2[id]);
+        	
+        	
+        	
+        });
+        
+        ci1++;
+	}
+    	
+	}
+	
+	
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         
@@ -78,6 +121,7 @@ function readURL2(input,e) {
         }
         reader.readAsText(input.files[0]);
     }
+    
 }
 
 function setOnClickListeners() {
